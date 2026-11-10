@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "codex-seo",
+  "version": "2.5.0",
+  "description": "SEO audit skills for OpenAI Codex, based on AgriciDaniel's Claude SEO project.",
+  "author": {
+    "name": "AgriciDaniel",
+    "url": "https://github.com/AgriciDaniel"
+  },
+  "homepage": "https://claude-seo.md",
+  "repository": "https://github.com/AgriciDaniel/claude-seo",
+  "license": "MIT",
+  "keywords": ["seo", "codex", "technical-seo", "schema", "sitemap"],
+  "extensions": {
+    "com.openai": {
+      "hooks": [],
+      "interface": {
+        "displayName": "Codex SEO",
+        "shortDescription": "SEO audit skills for Codex",
+        "longDescription": "Codex plugin fork of Claude SEO with technical, schema, sitemap, and Quran.az audit workflows.",
+        "developerName": "Local fork",
+        "category": "Productivity"
+      }
+    }
+  }
+}

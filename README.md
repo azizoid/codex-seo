@@ -1,25 +1,22 @@
 <!--
-  Claude SEO (claude-seo): free, open-source SEO audit plugin for Claude Code by Agrici Daniel.
-  Technical SEO, Core Web Vitals, E-E-A-T, Schema.org, AI search (GEO), local SEO, e-commerce and international SEO.
-  26 sub-skills and 19 specialist agents. MIT licensed.
+  Codex SEO: Codex plugin fork of AgriciDaniel/claude-seo.
+  Packages the upstream SEO skills for Codex and adds Quran.az-specific audit guidance. MIT licensed.
 -->
 
-<img src="assets/readme/v3/hero.svg" width="1200" height="420" alt="Claude SEO: rank in Google, get cited by AI. Three bots climb from #48 to #1 by fixing crawl, speed, schema, AI access and authority, then Google, ChatGPT, Perplexity, Gemini and Claude cite the site." />
-
-<h1 align="center">Claude SEO</h1>
+<h1 align="center">Codex SEO</h1>
 
 <p align="center">
-  <b>Free, open-source SEO audits inside <a href="https://claude.com/product/claude-code">Claude Code</a>.</b><br />
-  Rank higher in Google and get cited by AI search.
+  <b>Open-source SEO audits in Codex, based on <a href="https://github.com/AgriciDaniel/claude-seo">Claude SEO</a>.</b><br />
+  Technical audits, structured data, sitemaps, and search visibility.
 </p>
 
 <p align="center">
-  <a href="#install">Install</a> ·
+  <a href="#codex-setup">Codex setup</a> ·
   <a href="#see-it-in-action">Demo</a> ·
-  <a href="#real-results">Results</a> ·
-  <a href="#meet-the-team">Team</a> ·
+  <a href="#upstream-project-results">Upstream results</a> ·
+  <a href="#upstream-claude-agent-definitions">Upstream agents</a> ·
   <a href="#commands">Commands</a> ·
-  <a href="#pricing">Pricing</a> ·
+  <a href="#upstream-pricing-comparison">Pricing</a> ·
   <a href="#faq">FAQ</a>
 </p>
 
@@ -37,7 +34,7 @@
   <a href="https://trendshift.io/repositories/21053"><img src="https://trendshift.io/api/badge/repositories/21053" alt="AgriciDaniel/claude-seo on Trendshift: GitHub Trending #12 Repository Of The Day" width="250" height="55" /></a>
 </p>
 
-**Claude SEO is a free SEO plugin for Claude Code.** Give it any website and it runs a full SEO audit in 10 to 15 minutes, then hands you a clear action plan, sorted by what matters most.
+**Codex SEO is a Codex plugin fork of Claude SEO.** It exposes the reusable SEO skills in Codex; use skill names such as `seo-technical` and `seo-quran-az` instead of Claude Code slash commands.
 
 It checks everything a good SEO consultant would:
 
@@ -47,11 +44,27 @@ It checks everything a good SEO consultant would:
 - **AI search (GEO).** How likely Google AI Overviews, AI Mode, ChatGPT, Perplexity and Gemini are to cite your pages.
 - **Local and e-commerce SEO.** Google Business Profile, reviews, map pack, product pages and international sites.
 
-Claude SEO is built from 26 sub-skills and 19 specialist agents, and up to 17 agents work on your site at the same time. Every recommendation explains why it matters and how you will know it worked.
+The upstream project contains 26 sub-skills and 19 specialist-agent prompts. This fork packages its skills for Codex; Claude-specific slash-command routing, model selection, and hooks are not imported.
+
+## Codex setup
+
+The root `plugin.json` packages the existing skills for Codex. In the Quran.az workspace, the local
+marketplace `aziz-apps` provides this plugin and `.codex/config.toml` enables it for that project.
+Use the `seo-quran-az` skill for Quran.az reviews.
+
+To sync this local fork with its upstream source and refresh the installed plugin:
+
+```bash
+git -C ~/apps/codex-seo fetch upstream
+git -C ~/apps/codex-seo rebase upstream/main
+codex plugin marketplace upgrade aziz-apps
+```
+
+Restart the Codex desktop app after refreshing the plugin.
 
 ## See it in action
 
-Type `/seo` in Claude Code to see every command:
+The command list below documents the upstream Claude Code slash commands; Codex uses the packaged skill names instead.
 
 ![Claude SEO /seo command demo in the Claude Code terminal](screenshots/seo-command-demo.gif)
 
@@ -61,13 +74,16 @@ Run a full audit and watch the agents fan out across the site:
 
 [Watch the full demo on YouTube](https://www.youtube.com/watch?v=COMnNlUakQk)
 
-## Real results
+## Upstream project results
 
 The project's own site, [claude-seo.md](https://claude-seo.md), audited with Claude SEO from day one: 10.8K Search Console clicks in its first 12 weeks and a 99 mobile PageSpeed score.
 
 <img src="assets/readme/screen.svg" width="1200" height="751" alt="Real results: Google Search Console showing 10.8K clicks and 324K impressions for a new site between 23 March and 12 June 2026, next to a PageSpeed Insights report scoring 99 for performance and 100 for SEO." />
 
-## Meet the team
+## Upstream Claude agent definitions
+
+These agent roles, model assignments, and parallel dispatch describe Claude Code. Codex uses the packaged skills and its available tools.
+
 
 <img src="assets/readme/v3/team.svg" width="1200" height="420" alt="The Claude SEO team: 19 specialist agents on a website, each standing on the part it checks, shown one at a time with its role, model, ability and command." />
 
@@ -75,7 +91,7 @@ The project's own site, [claude-seo.md](https://claude-seo.md), audited with Cla
 <summary><b>All 19 agents</b></summary>
 <br />
 
-| Agent | Role | Model | Command |
+| Upstream agent | Role | Claude model | Claude command |
 |---|---|---|---|
 | `seo-technical` | Technical SEO Lead | Sonnet | `/seo technical` |
 | `seo-content` | Content Editor | Opus | `/seo content` |
@@ -136,7 +152,7 @@ The project's own site, [claude-seo.md](https://claude-seo.md), audited with Cla
 <ul><li><code>/seo image-gen [use-case]</code>: AI image generation for SEO assets</li><li><code>/seo seranking [command]</code>: AI Share-of-Voice across ChatGPT, Gemini, Perplexity, AI Overviews, AI Mode</li><li><code>/seo profound [command]</code>: LLM citation tracking with time-series data</li><li><code>/seo bing [command] &lt;url&gt;</code>: Bing Webmaster Tools + IndexNow URL submission</li><li><code>/seo unlighthouse &lt;url&gt;</code>: Multi-page Lighthouse runner, runs locally</li></ul>
 </details>
 
-## Pricing
+## Upstream pricing comparison
 
 <img src="assets/readme/v3/shop.svg" width="1200" height="420" alt="Same items, two shops: an agency charges for an SEO audit, reporting, calls and a retainer while Claude SEO charges nothing. Over year one the agency total reaches $106,500. Illustrative pricing." />
 
@@ -158,7 +174,9 @@ The project's own site, [claude-seo.md](https://claude-seo.md), audited with Cla
 
 </details>
 
-## How an audit works
+## Upstream Claude Code audit workflow
+
+The workflow below describes the source plugin. In Codex, use the packaged skills and tools available in the current session.
 
 1. **It learns your site.** Claude SEO detects the type of business (SaaS, local, e-commerce, publisher or agency) and adjusts its checks.
 2. **The team fans out.** Up to 17 specialist agents audit the site in parallel: technical, content, schema, speed, AI search and more.
@@ -190,7 +208,9 @@ but absent from the schema. This content-schema mismatch can confuse search engi
 
 Want the details? Read the [methodology](skills/seo/references/thinking-framework.md) and the [architecture](docs/ARCHITECTURE.md).
 
-## Install
+## Upstream Claude Code install
+
+This section is for the original Claude Code plugin. Codex setup for this fork is documented above.
 
 <img src="assets/readme/v3/install.svg" width="1200" height="420" alt="Installing Claude SEO: add the marketplace, install the plugin, 26 skills and 19 agents arrive, /seo setup readies the browser, then /seo audit starts the first level." />
 
