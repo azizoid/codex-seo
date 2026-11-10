@@ -52,15 +52,16 @@ The root `plugin.json` packages the existing skills for Codex. In the Quran.az w
 marketplace `aziz-apps` provides this plugin and `.codex/config.toml` enables it for that project.
 Use the `seo-quran-az` skill for Quran.az reviews.
 
-To sync this local fork with its upstream source and refresh the installed plugin:
+To sync this local fork with upstream and refresh Codex's cached plugin copy:
 
 ```bash
 git -C ~/apps/codex-seo fetch upstream
 git -C ~/apps/codex-seo rebase upstream/main
-codex plugin marketplace upgrade aziz-apps
+codex plugin remove codex-seo@aziz-apps
+codex plugin add codex-seo@aziz-apps
 ```
 
-Restart the Codex desktop app after refreshing the plugin.
+Restart the Codex desktop app after reinstalling the local plugin.
 
 ## See it in action
 
