@@ -1,22 +1,25 @@
 <!--
-  Codex SEO: Codex plugin fork of AgriciDaniel/claude-seo.
-  Packages the upstream SEO skills for Codex and adds Quran.az-specific audit guidance. MIT licensed.
+  Claude SEO (claude-seo): free, open-source SEO audit plugin for Claude Code by Agrici Daniel.
+  Technical SEO, Core Web Vitals, E-E-A-T, Schema.org, AI search (GEO), local SEO, e-commerce and international SEO.
+  26 sub-skills and 19 specialist agents. MIT licensed.
 -->
 
-<h1 align="center">Codex SEO</h1>
+<img src="assets/readme/v3/hero.svg" width="1200" height="420" alt="Claude SEO: rank in Google, get cited by AI. Three bots climb from #48 to #1 by fixing crawl, speed, schema, AI access and authority, then Google, ChatGPT, Perplexity, Gemini and Claude cite the site." />
+
+<h1 align="center">Claude SEO</h1>
 
 <p align="center">
-  <b>Open-source SEO audits in Codex, based on <a href="https://github.com/AgriciDaniel/claude-seo">Claude SEO</a>.</b><br />
-  Technical audits, structured data, sitemaps, and search visibility.
+  <b>Free, open-source SEO audits inside <a href="https://claude.com/product/claude-code">Claude Code</a>.</b><br />
+  Rank higher in Google and get cited by AI search.
 </p>
 
 <p align="center">
-  <a href="#codex-setup">Codex setup</a> ·
+  <a href="#install">Install</a> ·
   <a href="#see-it-in-action">Demo</a> ·
-  <a href="#upstream-project-results">Upstream results</a> ·
-  <a href="#upstream-claude-agent-definitions">Upstream agents</a> ·
+  <a href="#real-results">Results</a> ·
+  <a href="#meet-the-team">Team</a> ·
   <a href="#commands">Commands</a> ·
-  <a href="#upstream-pricing-comparison">Pricing</a> ·
+  <a href="#pricing">Pricing</a> ·
   <a href="#faq">FAQ</a>
 </p>
 
@@ -25,7 +28,7 @@
   <a href="https://claude.com/product/claude-code"><img src="https://img.shields.io/badge/Claude%20Code-Plugin-blue" alt="Claude Code plugin" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
   <a href="https://github.com/AgriciDaniel/claude-seo/releases"><img src="https://img.shields.io/github/v/release/AgriciDaniel/claude-seo" alt="Version" /></a>
-  <a href="tests/"><img src="https://img.shields.io/badge/tests-1077%20passing-brightgreen" alt="Tests" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/tests-2357%20passing-brightgreen" alt="Tests" /></a>
   <a href="https://github.com/AgriciDaniel/claude-seo"><img src="https://img.shields.io/github/stars/AgriciDaniel/claude-seo?style=flat" alt="GitHub stars" /></a>
   <a href="https://www.skool.com/ai-marketing-hub-pro"><img src="https://img.shields.io/badge/AI%20Marketing%20Hub-Pro%20community-purple" alt="AI Marketing Hub Pro community" /></a>
 </p>
@@ -34,7 +37,7 @@
   <a href="https://trendshift.io/repositories/21053"><img src="https://trendshift.io/api/badge/repositories/21053" alt="AgriciDaniel/claude-seo on Trendshift: GitHub Trending #12 Repository Of The Day" width="250" height="55" /></a>
 </p>
 
-**Codex SEO is a Codex plugin fork of Claude SEO.** It exposes the reusable SEO skills in Codex; use skill names such as `seo-technical` and `seo-quran-az` instead of Claude Code slash commands.
+**Claude SEO is a free SEO plugin for Claude Code.** Give it any website and it runs a full SEO audit in 10 to 15 minutes, then hands you a clear action plan, sorted by what matters most.
 
 It checks everything a good SEO consultant would:
 
@@ -44,28 +47,15 @@ It checks everything a good SEO consultant would:
 - **AI search (GEO).** How likely Google AI Overviews, AI Mode, ChatGPT, Perplexity and Gemini are to cite your pages.
 - **Local and e-commerce SEO.** Google Business Profile, reviews, map pack, product pages and international sites.
 
-The upstream project contains 26 sub-skills and 19 specialist-agent prompts. This fork packages its skills for Codex; Claude-specific slash-command routing, model selection, and hooks are not imported.
-
-## Codex setup
-
-The root `plugin.json` packages the existing skills for Codex. In the Quran.az workspace, the local
-marketplace `aziz-apps` provides this plugin and `.codex/config.toml` enables it for that project.
-Use the `seo-quran-az` skill for Quran.az reviews.
-
-To sync this local fork with upstream and refresh Codex's cached plugin copy:
-
-```bash
-git -C ~/apps/codex-seo fetch upstream
-git -C ~/apps/codex-seo rebase upstream/main
-codex plugin remove codex-seo@aziz-apps
-codex plugin add codex-seo@aziz-apps
-```
-
-Restart the Codex desktop app after reinstalling the local plugin.
+Claude SEO is built from 26 sub-skills and 19 specialist agents, and up to 17 agents work on your site at the same time. Every recommendation explains why it matters and how you will know it worked.
 
 ## See it in action
 
-The command list below documents the upstream Claude Code slash commands; Codex uses the packaged skill names instead.
+Watch the tour in under four minutes. Coral, Violet and Red install Claude SEO, audit a real site and read the plan:
+
+<a href="https://www.youtube.com/watch?v=1VQvcKMcVsk"><img src="assets/readme/homies-tour.jpg" width="640" height="360" alt="Watch the Claude SEO video tour on YouTube: a full SEO team in your terminal, presented by Coral, Violet and Red" /></a>
+
+Type `/seo` in Claude Code to see every command:
 
 ![Claude SEO /seo command demo in the Claude Code terminal](screenshots/seo-command-demo.gif)
 
@@ -75,16 +65,13 @@ Run a full audit and watch the agents fan out across the site:
 
 [Watch the full demo on YouTube](https://www.youtube.com/watch?v=COMnNlUakQk)
 
-## Upstream project results
+## Real results
 
 The project's own site, [claude-seo.md](https://claude-seo.md), audited with Claude SEO from day one: 10.8K Search Console clicks in its first 12 weeks and a 99 mobile PageSpeed score.
 
 <img src="assets/readme/screen.svg" width="1200" height="751" alt="Real results: Google Search Console showing 10.8K clicks and 324K impressions for a new site between 23 March and 12 June 2026, next to a PageSpeed Insights report scoring 99 for performance and 100 for SEO." />
 
-## Upstream Claude agent definitions
-
-These agent roles, model assignments, and parallel dispatch describe Claude Code. Codex uses the packaged skills and its available tools.
-
+## Meet the team
 
 <img src="assets/readme/v3/team.svg" width="1200" height="420" alt="The Claude SEO team: 19 specialist agents on a website, each standing on the part it checks, shown one at a time with its role, model, ability and command." />
 
@@ -92,7 +79,7 @@ These agent roles, model assignments, and parallel dispatch describe Claude Code
 <summary><b>All 19 agents</b></summary>
 <br />
 
-| Upstream agent | Role | Claude model | Claude command |
+| Agent | Role | Model | Command |
 |---|---|---|---|
 | `seo-technical` | Technical SEO Lead | Sonnet | `/seo technical` |
 | `seo-content` | Content Editor | Opus | `/seo content` |
@@ -153,7 +140,7 @@ These agent roles, model assignments, and parallel dispatch describe Claude Code
 <ul><li><code>/seo image-gen [use-case]</code>: AI image generation for SEO assets</li><li><code>/seo seranking [command]</code>: AI Share-of-Voice across ChatGPT, Gemini, Perplexity, AI Overviews, AI Mode</li><li><code>/seo profound [command]</code>: LLM citation tracking with time-series data</li><li><code>/seo bing [command] &lt;url&gt;</code>: Bing Webmaster Tools + IndexNow URL submission</li><li><code>/seo unlighthouse &lt;url&gt;</code>: Multi-page Lighthouse runner, runs locally</li></ul>
 </details>
 
-## Upstream pricing comparison
+## Pricing
 
 <img src="assets/readme/v3/shop.svg" width="1200" height="420" alt="Same items, two shops: an agency charges for an SEO audit, reporting, calls and a retainer while Claude SEO charges nothing. Over year one the agency total reaches $106,500. Illustrative pricing." />
 
@@ -175,9 +162,7 @@ These agent roles, model assignments, and parallel dispatch describe Claude Code
 
 </details>
 
-## Upstream Claude Code audit workflow
-
-The workflow below describes the source plugin. In Codex, use the packaged skills and tools available in the current session.
+## How an audit works
 
 1. **It learns your site.** Claude SEO detects the type of business (SaaS, local, e-commerce, publisher or agency) and adjusts its checks.
 2. **The team fans out.** Up to 17 specialist agents audit the site in parallel: technical, content, schema, speed, AI search and more.
@@ -209,9 +194,7 @@ but absent from the schema. This content-schema mismatch can confuse search engi
 
 Want the details? Read the [methodology](skills/seo/references/thinking-framework.md) and the [architecture](docs/ARCHITECTURE.md).
 
-## Upstream Claude Code install
-
-This section is for the original Claude Code plugin. Codex setup for this fork is documented above.
+## Install
 
 <img src="assets/readme/v3/install.svg" width="1200" height="420" alt="Installing Claude SEO: add the marketplace, install the plugin, 26 skills and 19 agents arrive, /seo setup readies the browser, then /seo audit starts the first level." />
 
@@ -371,6 +354,8 @@ Optional add-ons that bring in more data. Claude SEO works fully without them.
 
 Setup guides live in [`extensions/`](extensions/).
 
+Integrations built and maintained by other people, in their own repositories, are listed in [Community integrations](docs/COMMUNITY-INTEGRATIONS.md). They are not part of Claude SEO and are not audited by it.
+
 ## Star history
 
 <a href="https://www.star-history.com/#AgriciDaniel/claude-seo&Date">
@@ -389,7 +374,6 @@ Setup guides live in [`extensions/`](extensions/).
 | [Claude Banana](https://github.com/AgriciDaniel/banana-claude) | AI image generation for SEO assets and posts |
 | [ChatGPT SEO](https://github.com/AgriciDaniel/chatgpt-seo) | Turns a page, draft or SEO export into a sourced fix plan inside ChatGPT |
 | [FLOW](https://github.com/AgriciDaniel/flow) | An evidence-led SEO framework with 42 AI prompts |
-| [AI Marketing Claude](https://github.com/zubair-trabzada/ai-marketing-claude) | Community suite for copy, email, ads and funnels |
 
 **Docs:** [Installation](docs/INSTALLATION.md) · [Commands](docs/COMMANDS.md) · [Architecture](docs/ARCHITECTURE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Extensions setup](docs/MCP-INTEGRATION.md) · [Security](SECURITY.md) · [Privacy](PRIVACY.md) · [Contributors](CONTRIBUTORS.md)
 
